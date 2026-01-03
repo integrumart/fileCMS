@@ -1,0 +1,53 @@
+# FileCMS .htaccess
+# Enable rewrite engine
+<IfModule mod_rewrite.c>
+
+# Enable symbolic links
+Options +FollowSymLinks
+
+# Enable rewrite engine
+RewriteEngine On
+
+# Deny direct access to bl-content/databases
+RewriteRule ^bl-content/databases/(.*)$ - [F,L]
+
+# Deny direct access to bl-content/pages (content files)
+RewriteRule ^bl-content/pages/(.*)$ - [F,L]
+
+# Allow access to bl-content/uploads
+RewriteRule ^bl-content/uploads/(.*)$ - [L]
+
+# Deny direct access to files starting with dot
+RewriteRule (^|/)\.(?!well-known) - [F,L]
+
+# Main rewrite rule - redirect all non-existing files/directories to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L]
+
+</IfModule>
+
+# Disable directory listing
+Options -Indexes
+
+# Set default charset
+AddDefaultCharset UTF-8
+
+# Protect .htaccess
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Protect install.php after installation (uncomment after install)
+# <Files install.php>
+#     Order allow,deny
+#     Deny from all
+# </Files>
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>

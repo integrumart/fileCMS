@@ -1,0 +1,35 @@
+# FileCMS gitignore
+
+# Content databases (user data)
+bl-content/databases/*.php
+
+# Content pages (user content)
+bl-content/pages/*/
+
+# Uploads
+bl-content/uploads/*
+!bl-content/uploads/.gitkeep
+
+# Temporary files
+bl-content/tmp/*
+!bl-content/tmp/.gitkeep
+
+# System files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+*.sublime-*
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
