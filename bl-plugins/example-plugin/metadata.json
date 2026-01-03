@@ -1,0 +1,9 @@
+{
+    "name": "Example Plugin",
+    "version": "1.0.0",
+    "author": "FileCMS Team",
+    "description": "A simple example plugin demonstrating the plugin system",
+    "website": "https://github.com/integrumart/fileCMS",
+    "email": "",
+    "license": "MIT"
+}

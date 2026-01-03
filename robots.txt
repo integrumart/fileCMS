@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+Sitemap: /sitemap.xml
+
+# Disallow admin and content directories
+Disallow: /bl-kernel/
+Disallow: /bl-content/databases/
+Disallow: /bl-content/pages/
+Disallow: /bl-content/tmp/
+Disallow: /admin
+Disallow: /install.php
